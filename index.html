@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="box">
+
+    <!-- ======================================= -->
+    <!-- TELA 1: CADASTRO                        -->
+    <!-- ======================================= -->
+    <div id="tela-cadastro" class="tela">
+      <h1>✨ Criar Conta</h1>
+
+      <input type="email"    id="cad-email"  placeholder="Seu e-mail">
+      <input type="password" id="cad-senha"  placeholder="Senha (mín. 6 caracteres)">
+      <input type="password" id="cad-senha2" placeholder="Repita a senha">
+
+      <button id="btn-cadastrar" class="btn-verde">Cadastrar</button>
+
+      <p class="troca">
+        Já tem conta?
+        <span id="ir-login" class="link">Fazer login</span>
+      </p>
+    </div>
+
+    <!-- ======================================= -->
+    <!-- TELA 2: LOGIN                           -->
+    <!-- ======================================= -->
+    <div id="tela-login" class="tela escondido">
+      <h1>🔐 Entrar</h1>
+
+      <input type="email"    id="login-email" placeholder="Seu e-mail">
+      <input type="password" id="login-senha" placeholder="Sua senha">
+
+      <button id="btn-entrar" class="btn-verde">Entrar</button>
+
+      <p class="troca">
+        <span id="ir-recuperar" class="link">Esqueci minha senha</span>
+      </p>
+
+      <p class="troca">
+        Não tem conta?
+        <span id="ir-cadastro" class="link">Criar uma agora</span>
+      </p>
+    </div>
+
+    <!-- ======================================= -->
+    <!-- TELA 3: ÁREA INTERNA (só logado)        -->
+    <!-- ======================================= -->
+    <div id="tela-interna" class="tela escondido">
+      <h1>🎉 Área do Usuário</h1>
+
+      <div class="bem-vindo">
+        <p>Bem-vindo(a)!</p>
+        <p id="email-usuario" class="email"></p>
+      </div>
+
+      <p class="aviso">
+        🔒 Esta área só é visível para quem está logado.
+      </p>
+
+      <button id="btn-sair" class="btn-vermelho">Sair da conta</button>
+    </div>
+
+    <!-- ======================================= -->
+    <!-- TELA 4: RECUPERAR SENHA (pedir e-mail)  -->
+    <!-- ======================================= -->
+    <div id="tela-recuperar" class="tela escondido">
+      <h1>🔑 Recuperar Senha</h1>
+
+      <p class="aviso">
+        Digite seu e-mail e enviaremos um link para criar uma nova senha.
+      </p>
+
+      <input type="email" id="rec-email" placeholder="Seu e-mail">
+
+      <button id="btn-recuperar" class="btn-verde">Enviar link</button>
+
+      <p class="troca">
+        Lembrou a senha?
+        <span id="voltar-login" class="link">Voltar ao login</span>
+      </p>
+    </div>
+
+    <!-- ======================================= -->
+    <!-- TELA 5: DEFINIR NOVA SENHA              -->
+    <!-- ======================================= -->
+    <div id="tela-nova-senha" class="tela escondido">
+      <h1>🆕 Nova Senha</h1>
+
+      <p class="aviso">
+        Você chegou pelo link de recuperação. Defina sua nova senha abaixo.
+      </p>
+
+      <input type="password" id="nova-senha"  placeholder="Nova senha (mín. 6 caracteres)">
+      <input type="password" id="nova-senha2" placeholder="Repita a nova senha">
+
+      <button id="btn-salvar-senha" class="btn-verde">Salvar nova senha</button>
+    </div>
+
+    <!-- Mensagem global -->
+    <p id="msg" class="msg"></p>
+
+  </div>
+
+  <!-- SDK do Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Nosso script -->
+  <script src="script.js"></script>
+
+</body>
+</html>
